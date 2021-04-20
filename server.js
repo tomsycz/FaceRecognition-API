@@ -21,7 +21,7 @@ const db = knex({
 
 app.use(express.json()); // Middleware that parses response into json
 app.use(cors());
-
+  
 app.get("/", (req, res) => {
   res.send("success");
 });
@@ -40,6 +40,10 @@ app.get("/profile/:id", (req, res) => {
 
 app.put("/image", (req, res) => {
   image.handleImage(req, res, db);
+});
+
+app.post("/imageurl", (req, res) => {
+  image.handleApiCall(req, res);
 });
 
 app.listen(3000, () => {
